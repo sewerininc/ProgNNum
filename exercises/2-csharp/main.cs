@@ -14,9 +14,6 @@ public static class main{
 		WriteLine($"pi^e = {Pow(PI, E)}");
 		WriteLine($"testing \n sqrt2^2 = {Sqrt(2)*Sqrt(2)}");
 		WriteLine($"(e^pi)/(e^pi) = {Pow(E, PI)/Pow(E, PI)}");
-		double svar = math_funcs.gamma(1);
-		WriteLine($"gamma(1) = {svar}");
-		WriteLine($"gamme(1) hurtig = {math_funcs.gamma(1)}");
 		List<int> numbers = new List<int>() {1, 2, 3, 10};
 		foreach (var i in numbers) {
 			WriteLine($"lngamme({i}) = {math_funcs.lngamma(i)}");

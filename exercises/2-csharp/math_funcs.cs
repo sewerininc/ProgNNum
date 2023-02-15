@@ -3,8 +3,8 @@ using static System.Math;
 public class math_funcs{
 	public static string to_print = "fra math_funcs\n";
 	public static void print(){System.Console.Write(to_print);}
-	public math_funcs(string init){to_print=init;}
-	public math_funcs(){}
+	//public math_funcs(string init){to_print=init;}
+	//public math_funcs(){}
 
 	public static double gamma(double x){
 	///single precision gamma function (formula from Wikipedia)
