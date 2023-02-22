@@ -1,0 +1,12 @@
+Expression | Calculated manually | Calculated from .dll
+ sqrt(-1) | i | 6.12e-17+-1i
+ sqrt(i) | (-1)^(1/4) | 0.707+0.707i
+ Exp(i) | e^i | 0.54+0.841i
+ exp(i*pi) | -1 | -1+1.22e-16i
+ i^i | 0.21 | 0.208+0i
+ log(i) | (i*π)/2 | 0+1.57i
+ sin(i*pi) | i*sinh(pi) | 0+11.5i
+ sinh(i) | i*sin(1) ish 0.84i| 0+0.841i
+ cosh(i) | cos(1) ish 0.54| 0.54+0i
+ sin(i) | i*sinh(1) ish 1.17i| 0+1.18i
+ cos(i) | cosh(1) ish 1.54 | 1.54+0i

@@ -1,0 +1,13 @@
+all: Out.txt
+	cat $<
+
+Out.txt : main.exe 
+	mono $< > Out.txt
+
+
+main.exe : main.cs
+	mcs $< -target:exe -out:main.exe
+
+clean : 
+	rm --force *.txt *.exe
+

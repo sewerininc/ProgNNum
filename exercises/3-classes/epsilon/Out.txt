@@ -1,0 +1,12 @@
+max int with loop = 2147483647, with int.MaxValue = 2147483647, maxl==int.Max? True
+min int with loop = -2147483648, with int.MinValue = -2147483648, minl==int.Min? True
+k before k*=2, 1.11022302462516E-16
+double k = 2.22044604925031E-16, Pow(2,-52) = 2.22044604925031E-16, equal? True
+float j = 1.192093E-07, Pow(2,-23) = 1.19209289550781E-07, equal? True
+1 + tiny + tiny... = 1
+...tiny + tiny + 1 = 1.00000000011102
+The difference originates from the fact that when one tiny thing is added to one it is approximated to one all over the forloop, but when it is added to zero all values is added together wiht one which can not be approximated to one
+long_b = 7.999999999999999e-001
+short_b = 8.000000000000000e-001
+long_b == short_b ? False
+approx(a,b) ? True

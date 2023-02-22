@@ -9,5 +9,10 @@ u.dot(g) = 20
 u X g=(-1, 2, -1)
 u.norm()=3.74165738677394
 u.approx(g)=False
-u.ToString()=x = 1, y = 2, z = 3
-g.ToString()=x = 2, y = 3, z = 4
+u.ToString(): x = 1, y = 2, z = 3
+g.ToString(): x = 2, y = 3, z = 4
+u.approx(g) = False
+u.x+0.1+0.1+0.1+0.1+0.1+0.1+0.1+0.1 == u.x+0.1*8 False
+u.x = u.x +0.1+0.1+0.1+0.1+0.1+0.1+0.1+0.1;
+k.x = k.x + 0.1*8 
+u.approx(k) = True
