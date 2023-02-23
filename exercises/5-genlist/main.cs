@@ -18,22 +18,27 @@ static public class main{
 	public static void Main(string[] args){
 	
 	var list = new genlist<double[]>();
-	char[] delimiters = {' ','\t'};
-	var options = StringSplitOptions.RemoveEmptyEntries;
-	for(string line = ReadLine(); line!=null; line = ReadLine()){
-		var words = line.Split(delimiters,options);
+	
+	foreach(var arg in args)
+	{
+		var words = arg.Split("\n");
 		int n = words.Length;
 		var numbers = new double[n];
-		for(int i=0;i<n;i++) numbers[i] = double.Parse(words[i]);
+		for(int i=0;i<n;i++)
+		{       
+			numbers[i] = double.Parse(words[i]);
+		}
 		list.add(numbers);
-	       	}
-	for(int i=0;i<list.size;i++){
+	}
+	WriteLine($"list = {list}, list.size = {list.size}");	
+	
+	for(int i=0; i<list.size;i++)
+	{
 		var numbers = list[i];
-		foreach(var number in numbers)Write($"{number : 0.00e+00;-0.00e+00} ");
-		WriteLine();
-        	}	
-	
-	
+		foreach(var number in numbers) WriteLine($"number = {number : 0.00e+00;-0.00e+00}");
 	}
 
+
+	
+	}
 }

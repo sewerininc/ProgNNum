@@ -1,0 +1,13 @@
+list = genlist`1[System.Double[]], list.size = 12
+number =  1.29e+02
+number =  2.48e+01
+number =  4.85e+00
+number =  8.86e+01
+number =  3.37e+01
+number =  7.78e+00
+number =  3.04e+01
+number =  9.98e+01
+number =  6.72e+00
+number = -1.33e+00
+number =  9.63e+01
+number =  2.23e+00

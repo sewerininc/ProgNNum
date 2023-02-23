@@ -2,8 +2,7 @@ all: Out.txt
 	cat $<
 
 Out.txt: main.exe
-	mono $< -input:input.txt -output:$@
-
+	mono main.exe $$(cat inputfile) > Out.txt
 
 main.exe: main.cs
 	mcs $< -target:exe -out:$@
