@@ -7,7 +7,7 @@ Error.svg: error.gpi error.data
 Lngamma.svg: lngamma.gpi lngamma.data
 	gnuplot $<
 
-Gamma.svg: gamma.gpi gamma.data
+Gamma.svg: gamma.gpi gamma.data factorials.data
 	gnuplot $<
 
 error.data : main.exe
@@ -18,6 +18,16 @@ gamma.data : main.exe
 
 lngamma.data : main.exe
 	mono $< lngamma > $@
+
+factorials.data : Makefile
+	>$@
+	echo 0 1 >>$@
+	echo 1 1 >>$@
+	echo 2 2 >>$@
+	echo 3 6 >>$@
+	echo 4 24 >>$@
+	echo 5 120 >>$@
+	echo 6 $$(echo '6*120' | bc) >>$@
 
 lib.dll: math_funcs.cs
 	mcs $^ -target:library -out:$@
