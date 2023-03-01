@@ -10,5 +10,5 @@ set samples 800
 set title "Error function"
 plot [-5:5][-5:5] \
  "error.data" with lines linetype 1 title "theory" \
-,"fac_error.data" using ($1+1):($2) with points pointtype 4 title "experiment" \
+,"fac_error.data" using ($1):($2) with points pointtype 4 title "experiment" \
 #,gamma(x) with lines linetype 2 title "built-in gamma"
