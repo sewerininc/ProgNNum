@@ -118,12 +118,12 @@
 </g>
 	<g id="gnuplot_plot_1" ><title>theory</title>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<g transform="translate(498.9,399.3)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="end">
+	<g transform="translate(498.9,381.3)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="end">
 		<text><tspan font-family="Arial" >theory</tspan></text>
 	</g>
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
-	<path stroke='rgb(148,   0, 211)'  d='M507.2,395.4 L549.4,395.4 M64.7,269.7 L65.5,269.7 L66.3,269.7 L67.0,269.7 L67.8,269.7 L68.6,269.7
+	<path stroke='rgb(148,   0, 211)'  d='M507.2,377.4 L549.4,377.4 M64.7,269.7 L65.5,269.7 L66.3,269.7 L67.0,269.7 L67.8,269.7 L68.6,269.7
 		L69.4,269.7 L70.2,269.7 L71.0,269.7 L71.7,269.7 L72.5,269.7 L73.3,269.7 L74.1,269.7 L74.9,269.7
 		L75.7,269.7 L76.5,269.7 L77.2,269.7 L78.0,269.7 L78.8,269.7 L79.6,269.7 L80.4,269.7 L81.2,269.7
 		L81.9,269.7 L82.7,269.7 L83.5,269.7 L84.3,269.7 L85.1,269.7 L85.9,269.7 L86.6,269.7 L87.4,269.7
@@ -205,7 +205,20 @@
 		L558.6,197.8 L559.3,197.8 L560.1,197.8 L560.9,197.8 L561.7,197.8 L562.5,197.8 L563.3,197.8 L564.0,197.8
 		L564.8,197.8 L565.6,197.8  '/></g>
 	</g>
-<g fill="none" color="white" stroke="rgb(148,   0, 211)" stroke-width="2.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g id="gnuplot_plot_2" ><title>experiment</title>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g transform="translate(498.9,399.3)" stroke="none" fill="black" font-family="Arial" font-size="12.00"  text-anchor="end">
+		<text><tspan font-family="Arial" >experiment</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<use xlink:href='#gpPt3' transform='translate(365.3,233.7) scale(4.50)' color='rgb(  0, 158, 115)'/>
+	<use xlink:href='#gpPt3' transform='translate(375.4,225.7) scale(4.50)' color='rgb(  0, 158, 115)'/>
+	<use xlink:href='#gpPt3' transform='translate(415.5,203.5) scale(4.50)' color='rgb(  0, 158, 115)'/>
+	<use xlink:href='#gpPt3' transform='translate(528.3,395.4) scale(4.50)' color='rgb(  0, 158, 115)'/>
+</g>
+	</g>
+<g fill="none" color="white" stroke="rgb(  0, 158, 115)" stroke-width="2.00" stroke-linecap="butt" stroke-linejoin="miter">
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="2.00" stroke-linecap="butt" stroke-linejoin="miter">
 </g>
