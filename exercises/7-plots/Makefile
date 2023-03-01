@@ -24,16 +24,18 @@ factorials.data : Makefile
 	echo 0 1 >>$@
 	echo 1 1 >>$@
 	echo 2 2 >>$@
-	echo 3 6 >>$@
-	echo 4 24 >>$@
-	echo 5 120 >>$@
-	echo 6 $$(echo '6*120' | bc) >>$@
 
 fac_error.data : Makefile
 	>$@
 	echo 0 0 >>$@
 	echo 0.2 0.222702589 >>$@
 	echo 1 0.842700793 >>$@
+	echo 0.6 0.60385609 >>$@
+	echo 1.3 0.934007945 >>$@
+	echo -0.2 -0.222702589 >>$@
+	echo -1 -0.842700793 >>$@
+	echo -0.6 -0.60385609 >>$@
+	echo -1.3 -0.934007945 >>$@
 
 lib.dll: math_funcs.cs
 	mcs $^ -target:library -out:$@
