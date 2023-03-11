@@ -1,3 +1,7 @@
 Notes for task 
 
+original fit a*exp(-lambda*t) error y_i +- delta y_i
+
+fit to ln(A0) = -lambda*t, error ln(y_i) +- abs(delta y_i)/y_i)
+
 

@@ -1,0 +1,10 @@
+Random sized matrix A created from 40 to 500 with random values from 0-10
+Dims A.size1 = 211, A.size2 = 55
+is R upper triangular? True, is A upper triangular? False
+Is Q^TQ = I ? True
+Is QR = A ? True
+Random sized square A created from 40 to 500 with random values from 0-10
+A same sized vector b is created with random values from 0-10
+Dims A.size1 = 490, A.size2 = 490
+Is Ax = b ? True
+Is AB = I ? True
