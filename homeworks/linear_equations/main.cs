@@ -50,12 +50,12 @@ public static class main{
 		
 	public static void Main(){
 	var rnd = new System.Random();
-	int rndsize = rnd.Next(50,100);
-	string A_str = str_matrix(rndsize, rnd.Next(101,400), true);
+	int rndsize = rnd.Next(100,200);
+	string A_str = str_matrix(rndsize, rnd.Next(200,301), true);
 	matrix A = new matrix(A_str);
 	matrix I1 = get_I(rndsize);
-	WriteLine("Random sized matrix A created from 40 to 500 with random values from 0-10");  
-	WriteLine($"Dims A.size1 = {A.size1}, A.size2 = {A.size2}");
+	WriteLine("Random sized matrix A where 100 < m < 199, 200 n < 300 with random values from 0-10");  
+	WriteLine($"Dims A.size1(n) = {A.size1}, A.size2(m) = {A.size2}");
 	string R_str = str_matrix(rndsize, rndsize, false);
 	matrix R = new matrix(R_str);
 	matrix Q = A.copy();
@@ -66,9 +66,9 @@ public static class main{
 	WriteLine($"Is Q^TQ = I ? {test_QTQ.approx(I1)}");
 	WriteLine($"Is QR = A ? {test_QR.approx(A)}");
 	
-	WriteLine("Random sized square A created from 40 to 500 with random values from 0-10");  
+	WriteLine("Random sized square A created from 200 to 300 with random values from 0-10");  
 	WriteLine("A same sized vector b is created with random values from 0-10");  
-	rndsize = rnd.Next(100,500);
+	rndsize = rnd.Next(200,301);
 	matrix I = get_I(rndsize);
 	A_str = str_matrix(rndsize, rndsize, true);
 	A = new matrix(A_str);

@@ -1,0 +1,12 @@
+set terminal svg
+set key bottom right
+set output "rmaxplot.svg"
+set xlabel "x"
+set ylabel "y"
+set tics out
+set xzeroaxis
+set yzeroaxis
+set samples 800
+set title "dr = 0.2"
+plot [-5:5][-5:5] \
+ "rmax.data" with lines linetype 1 title "theory" 
