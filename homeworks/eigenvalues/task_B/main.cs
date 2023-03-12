@@ -96,7 +96,7 @@ public static class main{
 				WriteLine($"w[0,0] = {test_w[0]}");
 			}
 			else if(words[0] == "-looprmax") {
-				for(rmax=3; rmax<20;rmax+=1){
+				for(rmax=2.5; rmax<15;rmax+=0.5){
 					matrix H = get_H(rmax, dr);
 					var w = jacobi.cyclic(H);
 					WriteLine($"{rmax} {w[0]}");
