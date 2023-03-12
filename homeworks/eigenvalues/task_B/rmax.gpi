@@ -8,5 +8,5 @@ set xzeroaxis
 set yzeroaxis
 set samples 800
 set title "dr = 0.2"
-plot [-5:5][-5:5] \
+plot [0:20][-1:0] \
  "rmax.data" with lines linetype 1 title "theory" 
