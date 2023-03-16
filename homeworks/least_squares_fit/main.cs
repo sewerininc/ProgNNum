@@ -68,11 +68,11 @@ public static class main{
 		foreach(var arg in args){
 			if(arg == "plotdata"){
 				for(double i=xs[0]-0.5; i<xs[xs.size-1]+0.5;i+=1.0/20){
-					WriteLine($"{i} {Log(res[0]-res[1]*i)}");
+					WriteLine($"{i} {res[0]-res[1]*i}");
 				}
 			}
 			if(arg == "actualdata"){
-				for(int i = 0; i<xs.size; i++) WriteLine($"{xs[i]} {Log(ys[i])} {dys[i]/Log(ys[i])}");
+				for(int i = 0; i<xs.size; i++) WriteLine($"{xs[i]} {ys[i]} {dys[i]}");
 		
 			}
 		}
