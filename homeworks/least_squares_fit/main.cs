@@ -72,8 +72,10 @@ public static class main{
 				}
 			}
 			if(arg == "actualdata"){
-				for(int i = 0; i<xs.size; i++) WriteLine($"{xs[i]} {Log(ys[i])} {dys[i]/ys[i]}");
-		
+				for(int i = 0; i<xs.size; i++) WriteLine($"{xs[i]} {Log(ys[i])} {dys[i]/ys[i]}");	
+			}
+			if(arg == "half-life"){
+				WriteLine($"T_1/2 = {Log(2)/res[1]}");
 			}
 		}
 		

@@ -1,6 +1,11 @@
+All : plot.svg Out.txt
+	cat Out.txt
+
 plot.svg: eks_fit.gpi plotdata.data actualdata.data
 	gnuplot $<
 
+Out.txt: main.exe
+	mono $< half-life > $@
 
 actualdata.data: main.exe
 	mono main.exe actualdata > actualdata.data
