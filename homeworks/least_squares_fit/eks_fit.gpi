@@ -2,12 +2,12 @@ set terminal svg
 set key bottom right
 set output "Gamma.svg"
 set xlabel "x"
-set ylabel "y"
+set ylabel "ln(y)"
 set tics out
 set xzeroaxis
 set yzeroaxis
 set samples 800
 set title "Fit to exdata"
-plot [0:16][0:130] \
+plot [0:16][0:5] \
  "plotdata.data" with lines linetype 1 title "theory" \
 ,"actualdata.data" with errorbars title "experiment" \
