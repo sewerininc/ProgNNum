@@ -15,5 +15,5 @@ main.exe : main.cs tot.dll matrix.dll
 	mcs main.cs -reference:tot.dll -reference:matrix.dll -target:exe -out:main.exe
 
 clean : 
-	rm --force Out.txt main.exe tot.dll
+	rm --force Out.txt main.exe tot.dll *.data *.svg 
 

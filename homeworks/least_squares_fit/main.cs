@@ -72,7 +72,7 @@ public static class main{
 				}
 			}
 			if(arg == "actualdata"){
-				for(int i = 0; i<xs.size; i++) WriteLine($"{xs[i]} {ys[i]} {dys[i]}");
+				for(int i = 0; i<xs.size; i++) WriteLine($"{xs[i]} {Log(ys[i])} {dys[i]/Log(ys[i])}");
 		
 			}
 		}
