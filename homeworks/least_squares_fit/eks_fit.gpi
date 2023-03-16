@@ -8,6 +8,6 @@ set xzeroaxis
 set yzeroaxis
 set samples 800
 set title "Fit to exdata"
-plot [0:16][0:5] \
+plot [0:16][0:130] \
  "plotdata.data" with lines linetype 1 title "theory" \
 ,"actualdata.data" with errorbars title "experiment" \
