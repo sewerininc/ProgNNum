@@ -10,4 +10,4 @@ set samples 800
 set title "Fit to exdata"
 plot [0:16][0:200] \
  "plotdata.data" with lines linetype 1 title "theory" \
-,"actualdata.data" using ($1+1):($2) with errorbars title "experiment" \
+,"actualdata.data" with errorbars title "experiment" \
