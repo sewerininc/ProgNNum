@@ -1,3 +1,6 @@
+all : Out.txt
+	cat $<
+
 Out.txt : initial.exe
 	mono $^ > Out.txt
 

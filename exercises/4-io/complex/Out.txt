@@ -1,10 +1,10 @@
 Expression | Calculated manually | Calculated from .dll
- sqrt(-1) | i | 6.12e-17+-1i
- sqrt(i) | (-1)^(1/4) | 0.707+0.707i
+ sqrt(-1) | i | 6.12e-17+-1i ? True
+ sqrt(i) | 1/sqrt(2) + i/sqrt(2) | True
  Exp(i) | e^i | 0.54+0.841i
  exp(i*pi) | -1 | -1+1.22e-16i
- i^i | 0.21 | 0.208+0i
- log(i) | (i*π)/2 | 0+1.57i
+ i^i | 0.208 | True (more decimals added in the approx otherwise it will be false)
+ log(i) | (i*π)/2 | 0+1.57i ? True
  sin(i*pi) | i*sinh(pi) | 0+11.5i
  sinh(i) | i*sin(1) ish 0.84i| 0+0.841i
  cosh(i) | cos(1) ish 0.54| 0.54+0i

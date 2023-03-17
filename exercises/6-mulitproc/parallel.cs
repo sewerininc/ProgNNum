@@ -25,7 +25,7 @@ static public class main{
 			else WriteLine($"Nothing to be done for input {words}.\nSyntaxes -threads:number or -to_sum:number");
 		}	
 		WriteLine($"to_sum = {to_sum}, threads = {threads}");
-		
+	 	
 		datas[] data = new datas[threads];
 		for(int i=0;i<threads;i++)
 		{
@@ -50,7 +50,7 @@ static public class main{
 		double tot_sum = 0;
 		for(int i=0; i<threads;i++) tot_sum += data[i].partsum;
 		WriteLine($"tot_sum = {tot_sum}");
-
+		WriteLine("This is slower since Parallel.For works differently rather than yourself making the multiprocessing");
 
 	}
 
