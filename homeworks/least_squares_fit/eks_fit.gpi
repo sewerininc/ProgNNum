@@ -10,7 +10,7 @@ set samples 800
 set key right top
 set title "Fit to exdata"
 plot [0:16][0:2.5] \
- "plotdata.data" with lines linetype 1 title "theory" \
-, "plotdata_minus.data" with lines linetype 1 title "theory minus unc" \
-, "plotdata_plus.data" with lines linetype 1 title "theory plus unc" \
-,"actualdata.data" with errorbars title "experiment" \
+ "plotdata.data" with lines linetype 1 title "best fit" \
+, "plotdata_minus.data" with lines linetype 4 title "best fit minus unc" \
+, "plotdata_plus.data" with lines linetype 4 title "best fit plus unc" \
+,"actualdata.data" with errorbars title "datapoints" \
