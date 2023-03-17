@@ -1,11 +1,51 @@
 # ProgNNum
 Practical Programming and Numerical Methods 2023
 
-Finished exercises:
-  posix, git, hello, math, epsilon, vec, input/output, complex, wiki, genereic list, multiprocessing, plots 
 
-Finished homeworks:
-  Linear Equations A and B, EVD A and B,
+| #  | homework      | A | B | C | Σ   |
+ ======================================
+| 1  | LinEq         | 6 | 3 | - |  9  |
+---------------------------------------
+| 2  | EVD           | 6 | 3 | - |  9  |
+---------------------------------------
+| 3  | LeastSquares  | 6 | - | - |  6  |
+---------------------------------------
+|              ...                     |
+ ======================================
+|                    total points: 24  |
+ ======================================
+
+
+
+| #  | exercises     | bool |
+ ===========================
+| 1  | posix         | True |
+-----------------------------
+| 2  | git           | True |
+-----------------------------
+| 3  | hello         | True |
+-----------------------------
+| 4  | math          | True |
+-----------------------------
+| 5  | epsilon       | True |
+-----------------------------
+| 6  | vec           | True |
+-----------------------------
+| 7  | input/output  | True |
+-----------------------------
+| 8  | complex       | True |
+-----------------------------
+| 9  | wiki          | True |
+-----------------------------
+| 10  | genereic list | True |
+-----------------------------
+| 11  | multiprocess  | True |
+-----------------------------
+| 12  | plots         | True |
+-----------------------------
+|            ...            |
+ ===========================
+
 
 
 The front page for each week is one ahead from the numbers of the foldernames in exercises
