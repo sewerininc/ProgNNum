@@ -1,7 +1,7 @@
 # ProgNNum
 Practical Programming and Numerical Methods 2023
 
- ======================================
+
 | #  | homework      | A | B | C | Σ   |
  ======================================
 | 1  | LinEq         | 6 | 3 | - |  9  |
@@ -16,7 +16,7 @@ Practical Programming and Numerical Methods 2023
  ======================================
 
 
- ===========================
+
 | #  | exercises     | bool |
  ===========================
 | 1  | posix         | True |
