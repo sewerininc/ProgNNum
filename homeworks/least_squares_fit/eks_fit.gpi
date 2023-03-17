@@ -7,6 +7,7 @@ set tics out
 set xzeroaxis
 set yzeroaxis
 set samples 800
+set key right top
 set title "Fit to exdata"
 plot [0:16][0:2.5] \
  "plotdata.data" with lines linetype 1 title "theory" \
