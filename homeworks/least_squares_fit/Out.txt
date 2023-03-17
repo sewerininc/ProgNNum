@@ -1,3 +1,6 @@
-res =       4.96      0.171 
-T_1/2 = 4.046e+000 days. The correct value is 3.6 days
-a deiviation of 1.238e+001% os good consindering 9 datapoints was used to calculate it
+cov = 
+     0.369     0.0337 
+    0.0337    0.00416 
+ln(a) = 4.957e+000 +- 6.072e-001, y = 1.713e-001 +- 6.451e-002
+T_1/2 = 4.046e+000 +- 0.260971070277844 days. The correct value is 3.6 days
+Therefore we are not within uncertainties.

@@ -30,7 +30,7 @@ public static class main{
 	}
 
 	
-	public static vector lsfit(Func<double,double>[] fs, vector x, vector y, vector dy){
+	public static (vector, matrix) lsfit(Func<double,double>[] fs, vector x, vector y, vector dy){
 		int n = x.size;
 		int m = fs.Length;
 		matrix A = new matrix(n, m);
@@ -42,8 +42,16 @@ public static class main{
 		matrix Q = A.copy();
 		matrix R = new matrix(n, n);
 		QRGS.decomp(Q, R);
-		vector results = QRGS.solve(Q, R, b);	
-		return results;
+		vector results = QRGS.solve(Q, R, b);
+		matrix RTR = R.transpose()*R;
+		matrix pre_cov = new matrix(m, m);
+		for(int i=0; i<m; i++){
+		       for(int j=0; j<m; j++) pre_cov[i, j] = RTR[i, j];
+		}	       
+		matrix Q_ex = pre_cov.copy();
+		QRGS.decomp(pre_cov, Q_ex);
+		matrix cov = QRGS.inverse(pre_cov, Q_ex);
+		return (results, cov);
 	}
 	
 	
@@ -64,8 +72,18 @@ public static class main{
 			ys[i] = Log(float.Parse(words[1]));
 			dys[i] = float.Parse(words[2])/ys[i];
 		}
-		vector res = lsfit(func, xs, ys, dys);
+		(vector res, matrix cov) = lsfit(func, xs, ys, dys);
 		foreach(var arg in args){
+			if(arg == "plotdata_minus"){
+				for(double i=xs[0]-0.5; i<xs[xs.size-1]+0.5;i+=1.0/20){
+					WriteLine($"{i} {Log(res[0]-Sqrt(cov[0,0])-(res[1]-Sqrt(cov[1,1]))*i)}");
+				}
+			}
+			if(arg == "plotdata_plus"){
+				for(double i=xs[0]-0.5; i<xs[xs.size-1]+0.5;i+=1.0/20){
+					WriteLine($"{i} {Log(res[0]+Sqrt(cov[0,0])-(res[1]+Sqrt(cov[1,1]))*i)}");
+				}
+			}
 			if(arg == "plotdata"){
 				for(double i=xs[0]-0.5; i<xs[xs.size-1]+0.5;i+=1.0/20){
 					WriteLine($"{i} {Log(res[0]-res[1]*i)}");
@@ -75,10 +93,12 @@ public static class main{
 				for(int i = 0; i<xs.size; i++) WriteLine($"{xs[i]} {Log(ys[i])} {dys[i]/ys[i]}");	
 			}
 			if(arg == "half-life"){
-				res.print("res = ");
+				cov.print("cov = ");
+				WriteLine($"ln(a) = {res[0]:e3} +- {Sqrt(cov[0,0]):e3}, y = {res[1]:e3} +- {Sqrt(cov[1,1]):e3}");
 				double T12 = Log(2)/res[1];
-				WriteLine($"T_1/2 = {T12:e3} days. The correct value is 3.6 days");
-				WriteLine($"a deiviation of {(T12-3.6)/3.6*100:e3}% os good consindering 9 datapoints was used to calculate it");
+				double uncy = Sqrt(Pow(Log(2)/res[1]*Sqrt(cov[1,1]),2));
+				WriteLine($"T_1/2 = {T12:e3} +- {uncy} days. The correct value is 3.6 days");
+				WriteLine($"Therefore we are not within uncertainties.");
 			}
 		}
 		

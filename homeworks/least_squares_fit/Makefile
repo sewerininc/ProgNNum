@@ -1,7 +1,7 @@
 All : plot.svg Out.txt
 	cat Out.txt
 
-plot.svg: eks_fit.gpi plotdata.data actualdata.data
+plot.svg: eks_fit.gpi plotdata.data actualdata.data plotdata_minus.data plotdata_plus.data
 	gnuplot $<
 
 Out.txt: main.exe
@@ -9,6 +9,12 @@ Out.txt: main.exe
 
 actualdata.data: main.exe
 	mono main.exe actualdata > actualdata.data
+
+plotdata_minus.data : main.exe 
+	mono main.exe plotdata_minus > $@
+
+plotdata_plus.data : main.exe 
+	mono main.exe plotdata_plus > $@
 
 plotdata.data : main.exe 
 	mono main.exe plotdata > plotdata.data
