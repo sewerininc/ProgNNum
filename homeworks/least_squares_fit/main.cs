@@ -61,8 +61,8 @@ public static class main{
 		for(int i=0;i<n;i++){
 			var words = lines[i].Split(" ");
 			xs[i] = float.Parse(words[0]);
-			ys[i] = float.Parse(words[1]);
-			dys[i] = float.Parse(words[2]);
+			ys[i] = Log(float.Parse(words[1]));
+			dys[i] = float.Parse(words[2])/ys[i];
 		}
 		vector res = lsfit(func, xs, ys, dys);
 		foreach(var arg in args){
@@ -75,7 +75,10 @@ public static class main{
 				for(int i = 0; i<xs.size; i++) WriteLine($"{xs[i]} {Log(ys[i])} {dys[i]/ys[i]}");	
 			}
 			if(arg == "half-life"){
-				WriteLine($"T_1/2 = {Log(2)/res[1]}");
+				res.print("res = ");
+				double T12 = Log(2)/res[1];
+				WriteLine($"T_1/2 = {T12:e3} days. The correct value is 3.6 days");
+				WriteLine($"a deiviation of {(T12-3.6)/3.6*100:e3}% os good consindering 9 datapoints was used to calculate it");
 			}
 		}
 		
