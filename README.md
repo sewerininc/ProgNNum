@@ -21,27 +21,27 @@ Practical Programming and Numerical Methods 2023
  ===========================
 | 1  | posix         | True |
 -----------------------------
-| 1  | git           | True |
+| 2  | git           | True |
 -----------------------------
-| 1  | hello         | True |
+| 3  | hello         | True |
 -----------------------------
-| 1  | math          | True |
+| 4  | math          | True |
 -----------------------------
-| 1  | epsilon       | True |
+| 5  | epsilon       | True |
 -----------------------------
-| 1  | vec           | True |
+| 6  | vec           | True |
 -----------------------------
-| 1  | input/output  | True |
+| 7  | input/output  | True |
 -----------------------------
-| 1  | complex       | True |
+| 8  | complex       | True |
 -----------------------------
-| 1  | wiki          | True |
+| 9  | wiki          | True |
 -----------------------------
-| 1  | genereic list | True |
+| 10  | genereic list | True |
 -----------------------------
-| 1  | multiprocess  | True |
+| 11  | multiprocess  | True |
 -----------------------------
-| 1  | plots         | True |
+| 12  | plots         | True |
 -----------------------------
 |            ...            |
  ===========================
