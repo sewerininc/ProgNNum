@@ -9,6 +9,6 @@ set yzeroaxis
 set samples 800
 set key right top
 set title "linear interp exdata"
-plot [-8:8][-10:10] \
+plot [-8:8][-13:13] \
  "terpdata.data" with lines linetype 1 title "interpolation" \
 ,"data.data" with lines linetype 4 title "datapoints" 

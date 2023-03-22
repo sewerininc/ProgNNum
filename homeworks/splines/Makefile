@@ -1,8 +1,8 @@
-All : Out.txt plot.svg
+All : Out.txt plot.svg 
 	cat $<
 
 plot.svg: explot.gpi data.data terpdata.data
-	gnupot $<
+	gnuplot $<
 
 Out.txt: main.exe
 	mono $< > $@

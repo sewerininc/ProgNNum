@@ -26,15 +26,15 @@ public static class main{
 		return 1.0;
 	}	
 
-	public static double[] polynomion(double[] xs, double a, double b){
+	public static double[] polynomion(double[] xs, double a, double b, double c){
 		double[] ys = new double[xs.Length];
-		for(int i=0;i<xs.Length;i++) ys[i] = a + xs[i]*b;
+		for(int i=0;i<xs.Length;i++) ys[i] = a + xs[i]*b + Pow(xs[i],2)*c;
 		return ys;
 	}
 
 	public static void Main(string[] args){
 		double[] xs = new double[] {-5, -3, -1, 1, 3, 5};
-		double[] ys = polynomion(xs, 3.0, -2.0);
+		double[] ys = polynomion(xs, 3.0, -0.5, 0.5);
 		foreach(var arg in args){
 			if(arg == "terpdata"){
 				for(double i=xs.Min();i<xs.Max();i+=1.0/5) WriteLine($"{i} {linterp(xs, ys, i)}");
