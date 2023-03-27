@@ -1,0 +1,2 @@
+Integral of constant (const_plot.svg) function y=1 from 0 to 2.1 = 2.1
+Integral of random points (rand_plot.svg) from -10 to 5.3 = 43.925

@@ -1,17 +1,26 @@
-All : Out.txt plot.svg 
+All : Out.txt const_plot.svg rnd_plot.svg Makefile
 	cat $<
 
-plot.svg: explot.gpi data.data terpdata.data
+rnd_plot.svg: rndplot.gpi rnddata.data rndterpdata.data
 	gnuplot $<
 
-Out.txt: main.exe
-	mono $< > $@
+rnddata.data: main.exe
+	mono $< rnddata > $@
 
-data.data : main.exe
-	mono $< data > $@
+rndterpdata.data: main.exe rnddata.data
+	mono $< rndterpdata > $@
 
-terpdata.data : main.exe
-	mono $< terpdata > $@
+const_plot.svg: explot.gpi cdata.data cterpdata.data
+	gnuplot $<
+
+Out.txt: main.exe rnddata.data
+	mono $< test > $@
+
+cdata.data : main.exe
+	mono $< cdata > $@
+
+cterpdata.data : main.exe
+	mono $< cterpdata > $@
 
 main.exe : main.cs 
 	mcs main.cs -target:exe -out:main.exe
