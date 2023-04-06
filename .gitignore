@@ -17,7 +17,6 @@
 *.pch
 
 # Libraries
-!matrix.dll #Except for matrix.dll
 *.lib
 *.a
 *.la
@@ -25,6 +24,7 @@
 
 # Shared objects (inc. Windows DLLs)
 *.dll
+!matrix.dll #Except for matrix.dll
 *.so
 *.so.*
 *.dylib
