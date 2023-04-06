@@ -17,6 +17,7 @@
 *.pch
 
 # Libraries
+!matrix.dll #Except for matrix.dll
 *.lib
 *.a
 *.la
