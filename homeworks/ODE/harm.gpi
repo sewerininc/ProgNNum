@@ -1,0 +1,13 @@
+set terminal svg background "white"
+set key bottom right
+set output "harm.svg"
+set xlabel "x"
+set ylabel "y"
+set tics out
+set xzeroaxis
+set yzeroaxis
+set samples 800
+set key right top
+set title "Solution to u''=-u ( u=0 , u'=-1 )"
+plot [0:10][-1.2:1.2] \
+ "harm_data.data" with lines title "u(x)"

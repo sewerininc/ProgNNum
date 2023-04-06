@@ -1,0 +1,14 @@
+set terminal svg background "white"
+set key bottom right
+set output "rnd_plot.svg"
+set xlabel "x"
+set ylabel "y"
+set tics out
+set xzeroaxis
+set yzeroaxis
+set samples 800
+set key right top
+set title "linear interp exdata"
+plot [-11:11][-11:11] \
+ "rndterpdata.data" with points pointtype 7 ps 0.4 title "interpolation" \
+,"rnddata.data" with points pointtype 4 ps 1 title "datapoints" 

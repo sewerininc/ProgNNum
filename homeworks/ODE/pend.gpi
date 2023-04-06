@@ -1,0 +1,13 @@
+set terminal svg background "white"
+set key bottom right
+set output "pend.svg"
+set xlabel "x"
+set ylabel "y"
+set tics out
+set xzeroaxis
+set yzeroaxis
+set samples 800
+set key right top
+set title "Solution to u''= -0.25u' -5sin(u) ( u=PI-0.1 , u'=0 )"
+plot [0:10][-4.2:4.2] \
+ "pend_data.data" with lines title "u(x)"
