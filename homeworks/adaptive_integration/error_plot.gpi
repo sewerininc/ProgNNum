@@ -1,0 +1,15 @@
+set terminal svg background "white"
+set key bottom right
+set output "error_plot.svg"
+set xlabel "x"
+set ylabel "y"
+set tics out
+set xzeroaxis
+set yzeroaxis
+set samples 800
+set key right bottom
+set title "Showcase of new and old data and where testpoints are placed"
+plot [-3:3][-1.7:1.7] \
+ "test_point.data" with points pointtype 7 ps 0.4 title "Testing points" \
+,"int_error.data" with lines title "Integral errorfunction - 0.5" \
+, "app_error.data" with lines title "Approximated errorfunction + 0.5"
