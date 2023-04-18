@@ -1,0 +1,14 @@
+set terminal svg background "white"
+set key bottom right
+set output "test_error_plot.svg"
+set xlabel "x"
+set ylabel "y"
+set tics out
+set xzeroaxis
+set yzeroaxis
+set samples 800
+set key right top
+set title "Showcase of the acutal error and the estimated error here estimated error follow 1/sqrt(N)"
+plot [0:5000][0:0.8] \
+ "actual_error.data" with points pointtype 7 ps 0.4 title "Actual error |result - pi|" \
+,"estimated_error.data" with points pointtype 7 ps 0.4 title "Estimated error"
