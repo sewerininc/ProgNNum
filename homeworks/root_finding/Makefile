@@ -1,9 +1,7 @@
 DLLS = $(addprefix -reference:,$(filter %.dll,$^))
 CODE = $(filter %.cs,$^)
-MATLIBDIR = $(HOME)/AU/ProgNNum/matlib/matrix
 
-
-All : Out.txt test_error_plot.svg
+All : Out.txt #test_error_plot.svg
 	cat $<
 
 test_error_plot.svg: n_error_plot.gpi estimated_error.data
@@ -17,9 +15,6 @@ estimated_error.data : main.exe
 
 main.exe : main.cs matrix.dll 
 	mcs -target:exe -out:$@ $(DLLS) $(CODE)
-
-matrix.dll : ; $(MKDLL)
-
 
 clean : 
 	rm --force Out.txt main.exe *.data *.svg 
