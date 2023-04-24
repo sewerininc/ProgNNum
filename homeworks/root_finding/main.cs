@@ -54,7 +54,7 @@ public static class main{
 			
 			if(fx_test.norm() < eps){
 			       	WriteLine($"Solved (eps satisfied) x = [{new_x[0]}, {new_x[1]}] at loop {i}");
-				return fx;
+				return fx_test;
 			}
 			x = new_x;
 			fx = fx_test;
