@@ -1,7 +1,7 @@
 to_sum = 500000000, threads = 1
 i = 0, a = 1, s = 500000001
-tot_sum = 14.4259314673245
+tot_sum = 14.2912059343269
 This is slower since Parallel.For works differently rather than yourself making the multiprocessing
-real 3.06
-user 19.07
-sys 0.05
+real 2.96
+user 19.03
+sys 0.02

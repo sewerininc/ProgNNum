@@ -37,7 +37,7 @@ public static class main{
 	sum_b += 1;
 	WriteLine($"...tiny + tiny + 1 = {sum_b}");
 	
-	WriteLine("The difference originates from the fact that when one tiny thing is added to one it is approximated to one all over the forloop, but when it is added to zero all values is added together wiht one which can not be approximated to one");
+	WriteLine("The difference originates from the fact that when one tiny thing is added to one it is approximated to one all over the forloop, but when a tiny number is added to a tiny number the values are added together which can not be approximated to zero");
 	
 	double long_b = 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1;
 	double short_b = 0.1*8;
