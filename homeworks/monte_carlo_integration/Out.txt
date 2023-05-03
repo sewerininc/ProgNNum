@@ -1,6 +1,6 @@
 The Integral calculated is 2*r*sin(theta)^2, where r goes from 0 to 1 and theta goes from 0 to 2*PI
 The output should then be PI
-res_value = 3.09520381956776 +- 0.031367937836134
+res_value = 3.14288800292165 +- 0.0314273745611025
 Next is calculation ∫0 to π  dx/π ∫0 to π  dy/π ∫0 to π  dz/π [1-cos(x)cos(y)cos(z)]^(-1)
 The value should be Γ(1/4)4/(4π3) ≈ 1.3932039296856768591842462603255
-res_value = 1.39619818638467 +- 0.0113036590834238
+res_value = 1.38040876168726 +- 0.00587617106184054

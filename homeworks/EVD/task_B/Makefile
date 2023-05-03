@@ -1,6 +1,8 @@
 All : rmaxplot.svg drplot.svg
 	mv -t plots $^
 
+DIR = $(HOME)/AU/ProgNNum/matlib/matrix/
+
 rmaxplot.svg : rmax.gpi rmax.data
 	gnuplot $<
 
@@ -18,6 +20,9 @@ tot.dll : jacobi.cs matrix.dll
 
 main.exe : main.cs tot.dll matrix.dll
 	mcs main.cs -reference:tot.dll -reference:matrix.dll -target:exe -out:main.exe
+
+matrix.dll : $(DIR)vector.cs $(DIR)matrix.cs
+	mcs -target:library -out:$@ $^
 
 clean : 
 	rm --force Out.txt main.exe tot.dll
