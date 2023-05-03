@@ -4,7 +4,7 @@ all : Out.txt
 Out.txt : initial.exe
 	mono $^ > Out.txt
 
-DIR = /home/msd/AU/ProgNNum/matlib/complex
+DIR = $(HOME)/AU/ProgNNum/matlib/complex
 
 lib.dll : $(DIR)/cmath.cs $(DIR)/complex.cs
 	mcs -target:library -out:./lib.dll $^
