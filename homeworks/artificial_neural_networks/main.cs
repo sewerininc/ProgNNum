@@ -5,26 +5,35 @@ using System.Collections.Generic;
 using System.Linq;
 using System.IO;
 using System.Text;
+
+public static class ann{
+	public static int n; /* number of hidden neurons */
+	
+	static Func<double,double> f = x => x*Exp(-x*x); /* activation function */
+	
+	public static vector p; /* network parameters */
+	
+	public static void ann_(int n){/* constructor */}
+	
+	public static double response(double x){/* return the response of the network to the input signal x */
+		return 1.0;
+	}
+
+	public static void train(vector x,vector y){/* train the network to interpolate the given table {x,y} */}
+}
+
 public static class main{
 
-	
+	static double gauss_wave(double x){ return x*Exp(-Pow(x, 2));}	
 
 	public static void Main(string[] args){
 
 	foreach(var arg in args){
 		if(arg == "Out.txt")
 		{
-			WriteLine();
-			//var rnd = new System.Random();	
-			vector guess = new vector(-2, 3);
-			WriteLine($"Solving Rosenbrock's valley function, guess x = [{guess[0]}, {guess[1]}]");
-			vector result = qnewton(rosenbrock, v_rosenbrock, guess, 1e-8);
-			result.print("Rosenbrock last value for fx = ");
-			WriteLine();
-			vector guesst = new vector(-3, 3);
-			WriteLine($"Solving Himmelblau's function, guess x = [{guesst[0]}, {guesst[1]}]");
-			vector result_him = qnewton(himmelblau, v_himmelblau, guesst, 1e-8);
-			result_him.print("Rosenbrock last value for fx = ");
+			WriteLine("Hello");
+			ann.n = 10;
+			ann.p = new vector(1,2,3);
 		}
 	}
 	
