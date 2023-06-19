@@ -27,16 +27,16 @@ Practical Programming and Numerical Methods 2023
 |                    total points: 64  |
  ======================================
  
- ### 
+ ###  -- Exam table --
  
  | #  | Exam      | A | B | C | Σ   |
  ======================================
 | ?  | ??         | - | - | - |  -  |
 ---------------------------------------
 
-### 
+### -- Exercises table --
 
-| #  | exercises     | bool |
+| #  | Exercises     | bool |
  ===========================
 | 1  | posix         | True |
 -----------------------------
