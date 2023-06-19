@@ -56,7 +56,7 @@ Practical Programming and Numerical Methods 2023
 | 12  | plots         | True |
 -----------------------------
 |      | All True  |  |
- ===========================
+-----------------------------
 
 
 
