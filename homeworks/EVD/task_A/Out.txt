@@ -1,0 +1,5 @@
+Generating a random symmetric matrix A from size 200-300 with the random size of 293
+A == A^T ? True
+ V^TAV == D ? True, (Is only true when accuracy is turned down acc=1e-3)
+ VDV^T == A ? True
+V^TV == I ? True, VV^T == I ? True
