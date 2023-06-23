@@ -95,5 +95,14 @@ public static class functions{
 		for(int i=0; i<results.size; i++) if(results[i] > 0.001) size +=1;
 		return size;
 	}
+	
+	public static bool test_eigen_eq(vector results, matrix D, double uTu){
+		for(int i=0; i<results.size; i++) {
+			if(results[i] < D[i,i]) return false;
+			if(results[i] > D[i,i] + uTu) return false;
+		}
+		return true;
+	}
+	
 
 }

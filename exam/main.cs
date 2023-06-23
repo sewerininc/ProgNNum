@@ -16,7 +16,7 @@ public static class main{ // If this takes long time to rung look at the two per
 		matrix A = D + uuT;
 		WriteLine($"The dimensions is first set as a 5x5 for matrix D and vector u is of length 5");
 		WriteLine($"Values for u is random between 1 and 5");
-		WriteLine($"D's diagonalvalues is random between 1 and 5 however the max possible value for u^Tu (25n) times two is added to the next d_i such this is in compliance with d_n ≤ λ_n ≤ d_n + u^Tu (the factor two is there for extra seperation) ");
+		WriteLine($"D's diagonalvalues is random between 1 and 5 however the max possible value for u^Tu (25n) times two is added to the next d_i such this is in compliance with d_n ≤ λ_n ≤ d_n + u^Tu (equation 25)(the factor two is there for extra seperation) ");
 				
 		D.print("D = ");
 		u.print("u = ");
@@ -36,7 +36,7 @@ public static class main{ // If this takes long time to rung look at the two per
 			guess = D[i,i] + uTu[0,0]/2;		
 			 results[i] = functions.get_one_root(sec, diff_sec, guess, 1e-3, true);
 		}
-		
+		WriteLine($"Here it can be noticed that some of the eigenvalues are indeed within d_n ≤ λ_n ≤ d_n + u^Tu. To make sure I test it for all eigenvalues and are all eigenvalues indeed in compliance with equation 25 {functions.test_eigen_eq(results, D, uTu[0,0])}?");
 		WriteLine($"The total number of found eigenvalues = {functions.get_size_eigen(results)} (should be equal to n which is {rnd_size} for this case)");
 		WriteLine($"Is all n eigenvalues different ? {functions.test_difference(results)}\n");
 		
@@ -58,7 +58,7 @@ public static class main{ // If this takes long time to rung look at the two per
 			guess_big = D_big[i,i] + uTu_big[0,0]/2;		
 			results_big[i] = functions.get_one_root(sec_big, diff_sec_big, guess_big, 1e-3, false);
 		}
-		
+		WriteLine($"Are all eigenvalues indeed in compliance with equation 25 ? {functions.test_eigen_eq(results_big, D_big, uTu_big[0,0])}");
 		WriteLine($"The total number of found eigenvalues = {functions.get_size_eigen(results_big)}");
 		WriteLine($"Is all n eigenvalues different ? {functions.test_difference(results_big)} \n");
 		
