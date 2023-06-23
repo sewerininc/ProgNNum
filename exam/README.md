@@ -5,6 +5,8 @@ My last two numbers of the student number are 89 and the project I have is there
 
 Self-Rating: 9 
 
+With this self-rated 9 and the total of 64 homework points I have the score: 7.18
+
 ### Description, Thoughts 
 
 In this project, I have made the diagonal matrix D size n,n with random values between 1 and 5. The column-vector u also has random values between 1 and 5 such as m equals n in the book http://212.27.24.106:8080/prog/book/eigen.pdf. I separated the diagonal values for d with two times the max value of u^Tu such that I ensured that the eigenvalues comply with equation 25 (I also tested if this is true) where sigma is 1 as described in the exam question 11. 
