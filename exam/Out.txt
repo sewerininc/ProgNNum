@@ -3,45 +3,45 @@ Values for u is random between 1 and 5
 D's diagonalvalues is random between 1 and 5 however the max possible value for u^Tu (25n) times two is added to the next d_i such this is in compliance with d_n ≤ λ_n ≤ d_n + u^Tu (equation 25)(the factor two is there for extra seperation) 
 D = 
          2          0          0          0          0 
-         0        254          0          0          0 
-         0          0        501          0          0 
-         0          0          0        751          0 
+         0        252          0          0          0 
+         0          0        504          0          0 
+         0          0          0        752          0 
          0          0          0          0      1e+03 
 u = 
-         4 
-         4 
-         3 
          5 
-         4 
+         3 
+         3 
+         1 
+         5 
 uu^T = 
-        16         16         12         20         16 
-        16         16         12         20         16 
-        12         12          9         15         12 
-        20         20         15         25         20 
-        16         16         12         20         16 
+        25         15         15          5         25 
+        15          9          9          3         15 
+        15          9          9          3         15 
+         5          3          3          1          5 
+        25         15         15          5         25 
 A = D + uu^T = 
-        18         16         12         20         16 
-        16        270         12         20         16 
-        12         12        510         15         12 
-        20         20         15        776         20 
-        16         16         12         20   1.02e+03 
+        27         15         15          5         25 
+        15        261          9          3         15 
+        15          9        513          3         15 
+         5          3          3        753          5 
+        25         15         15          5   1.03e+03 
 u^Tu = 
-        82 
+        69 
 Next equation 23 in the chapter eigenvalues is calculated where the roots m of the equation is the (updated) eigenvalues 
 The roots are found with the Newton-Raphson method and each guess will be d_i + u^Tu/2 
 Since all values in u is above 0 there are 5 possible solutions which will be found with the uncertainty that f(λ) = 0 +- 1e-3
-Found eigenvalue λ = 16.0958178486973 where f(λ) = 0.00095624085505109 at 122 itterations
-Found eigenvalue λ = 269.213825539273 where f(λ) = 0.000971704218971418 at 135 itterations
-Found eigenvalue λ = 509.645989324266 where f(λ) = 0.000963709036670361 at 102 itterations
-Found eigenvalue λ = 776.363894897434 where f(λ) = 0.000968586291903328 at 182 itterations
-Found eigenvalue λ = 1021.75976841763 where f(λ) = 0.000965971627844175 at 180 itterations
-Here it can be noticed that some of the eigenvalues are indeed within d_n ≤ λ_n ≤ d_n + u^Tu. To make sure I test it for all eigenvalues and are all eigenvalues indeed in compliance with equation 25 True?
+Found eigenvalue λ = 25.0537816115993 where f(λ) = 0.000966835167490337 at 147 itterations
+Found eigenvalue λ = 261.227054876872 where f(λ) = 0.000979276379073399 at 103 itterations
+Found eigenvalue λ = 513.269592703446 where f(λ) = 0.000975815349981507 at 104 itterations
+Found eigenvalue λ = 752.988331671873 where f(λ) = 0.000789019785682313 at 46 itterations
+Found eigenvalue λ = 1029.5284978419 where f(λ) = 0.000982987994832873 at 170 itterations
+Here it can be noticed that some of the eigenvalues are indeed within d_n ≤ λ_n ≤ d_n + u^Tu. To make sure I test it for all eigenvalues and are all eigenvalues indeed in compliance with equation 25 ? True
 The total number of found eigenvalues = 5 (should be equal to n which is 5 for this case)
 Is all n eigenvalues different ? True
 
-Next we will test the implication a bit more with a random generated n:[400;450], n = 431
+Next we will test the implication a bit more with a random generated n:[400;450], n = 407
 Are all eigenvalues indeed in compliance with equation 25 ? True
-The total number of found eigenvalues = 431
+The total number of found eigenvalues = 407
 Is all n eigenvalues different ? True 
 
 This then proves that the program finds all possible (updated) eigenvalues. 

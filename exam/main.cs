@@ -36,7 +36,7 @@ public static class main{ // If this takes long time to rung look at the two per
 			guess = D[i,i] + uTu[0,0]/2;		
 			 results[i] = functions.get_one_root(sec, diff_sec, guess, 1e-3, true);
 		}
-		WriteLine($"Here it can be noticed that some of the eigenvalues are indeed within d_n ≤ λ_n ≤ d_n + u^Tu. To make sure I test it for all eigenvalues and are all eigenvalues indeed in compliance with equation 25 {functions.test_eigen_eq(results, D, uTu[0,0])}?");
+		WriteLine($"Here it can be noticed that some of the eigenvalues are indeed within d_n ≤ λ_n ≤ d_n + u^Tu. To make sure I test it for all eigenvalues and are all eigenvalues indeed in compliance with equation 25 ? {functions.test_eigen_eq(results, D, uTu[0,0])}");
 		WriteLine($"The total number of found eigenvalues = {functions.get_size_eigen(results)} (should be equal to n which is {rnd_size} for this case)");
 		WriteLine($"Is all n eigenvalues different ? {functions.test_difference(results)}\n");
 		
