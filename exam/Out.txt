@@ -1,16 +1,48 @@
+The dimensions is first set as a 5x5 for matrix D and vector u is of length 5
+Values for u is random between 1 and 5
+D's diagonalvalues is random between 1 and 5 however the max possible value for u^Tu (25n) times two is added to the next d_i such this is in compliance with d_n ≤ λ_n ≤ d_n + u^Tu (the factor two is there for extra seperation) 
 D = 
-         1          0          0 
-         0          9          0 
-         0          0          8 
+         3          0          0          0          0 
+         0        251          0          0          0 
+         0          0        503          0          0 
+         0          0          0        751          0 
+         0          0          0          0      1e+03 
 u = 
-         7 
-         6 
          2 
+         5 
+         5 
+         3 
+         1 
 uu^T = 
-        49         42         14 
-        42         36         12 
-        14         12          4 
-A = 
-        50         42         14 
-        42         45         12 
-        14         12         12 
+         4         10         10          6          2 
+        10         25         25         15          5 
+        10         25         25         15          5 
+         6         15         15          9          3 
+         2          5          5          3          1 
+A = D + uu^T = 
+         7         10         10          6          2 
+        10        276         25         15          5 
+        10         25        528         15          5 
+         6         15         15        760          3 
+         2          5          5          3      1e+03 
+u^Tu = 
+        64 
+Next equation 23 in the chapter eigenvalues is calculated where the roots m of the equation is the (updated) eigenvalues 
+The roots are found with the Newton-Raphson method and each guess will be d_i + u^Tu/2 
+Since all values in u is above 0 there are 5 possible solutions which will be found with the uncertainty that f(λ) = 0 +- 1e-3
+Found eigenvalue λ = 6.43404190601839 where f(λ) = 0.000852584481040572 at 55 itterations
+Found eigenvalue λ = 273.454067351027 where f(λ) = 0.000957530307138146 at 135 itterations
+Found eigenvalue λ = 529.472018405508 where f(λ) = 0.000980895115116741 at 155 itterations
+Found eigenvalue λ = 761.559851810954 where f(λ) = 0.00096330396538827 at 120 itterations
+Found eigenvalue λ = 1002.14178447943 where f(λ) = 0.000969570566803135 at 51 itterations
+The total number of found eigenvalues = 5 (should be equal to n which is 5 for this case)
+Is all n eigenvalues different ? True
+
+Next we will test the implication a bit more with a random generated n:[400;450], n = 401
+The total number of found eigenvalues = 401
+Is all n eigenvalues different ? True 
+
+This then proves that the program finds all possible (updated) eigenvalues. 
+Next task is to show that the operations scale with O(n²), this will be shown on the plot 'operations_pr_n.svg'.
+The sum of all itterations to find all n (update) eigenvalues is divided with n² such the plot should be a straight line if the number of operations scales with n²
+The plot is linear when the matrix is reasonably large and therefore I have found the eigenvalues of A using only O(n²) operations

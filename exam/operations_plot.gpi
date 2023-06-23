@@ -1,0 +1,13 @@
+set terminal svg background "white"
+set key bottom right
+set output "operations_pr_n.svg"
+set xlabel "Number of eigenvalues n"
+set ylabel "Total itterations divided by n^2"
+set tics out
+set xzeroaxis
+set yzeroaxis
+set samples 800
+set key right top
+set title "Operations for all found eigenvalues"
+plot [-10:400][-3:30] \
+ "plotdata.data" with lines title "interpolation"

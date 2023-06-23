@@ -7,5 +7,6 @@ Self-Rating:
 
 ### Description 
 
-
+simga = 1, in equation 23
+m = n
  

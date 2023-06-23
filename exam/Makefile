@@ -1,16 +1,24 @@
-All : Out.txt
-	cat $^
+All : Out.txt operations_pr_n.svg
+	cat $<
 
 DIR = $(HOME)/AU/ProgNNum/matlib/matrix/
+DLLS = $(addprefix -reference:,$(filter %.dll,$^))
+CODE = $(filter %.cs,$^)
 
-Out.txt : main.exe 
-	mono main.exe > Out.txt
+operations_pr_n.svg: operations_plot.gpi plotdata.data
+	gnuplot $<
 
-#tot.dll : jacobi.cs matrix.dll
-#	mcs $< -reference:matrix.dll -target:library -out:tot.dll
+Out.txt : main.exe  
+	mono $< $@ > $@
 
-main.exe : main.cs matrix.dll
-	mcs main.cs -reference:matrix.dll -target:exe -out:main.exe
+functions.dll : functions.cs matrix.dll
+	mcs $< -reference:matrix.dll -target:library -out:$@
+
+plotdata.data : main.exe
+	mono $< $@ > $@
+
+main.exe : main.cs matrix.dll functions.dll
+	mcs -target:exe -out:$@ $(DLLS) $(CODE)
 
 matrix.dll : $(DIR)vector.cs $(DIR)matrix.cs
 	mcs -target:library -out:$@ $^
