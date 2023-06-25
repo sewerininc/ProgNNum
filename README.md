@@ -12,7 +12,7 @@ I have self-rated the exam as 9, a total of 64 homework points, which gives me t
 ---------------------------------------
 | 3  | LeastSquares  | 6 | 3 | 1 |  10 |
 ---------------------------------------
-| 3  | Splines  | 6 | - | - |  6 |
+| 3  | Splines  | 6 | 3 | - |  9 |
 ---------------------------------------
 | 3  | ODE  | 6 | - | - |  6 |
 ---------------------------------------
@@ -26,7 +26,7 @@ I have self-rated the exam as 9, a total of 64 homework points, which gives me t
 ---------------------------------------
 |              ...                     |
  ======================================
-|                    total points: 64  |
+|                    total points: 67  |
  ======================================
 
 ### -- Exercises table --
