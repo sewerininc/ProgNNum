@@ -1,7 +1,7 @@
 # ProgNNum
 Practical Programming and Numerical Methods 2023
 
-I have self-rated the exam as 9, a total of 64 homework points, which gives me the score: 7.18
+I have self-rated the exam as 9, a total of 67 homework points, which gives me the score: 7.39
 
 
 | #  | homework      | A | B | C | Σ   |
