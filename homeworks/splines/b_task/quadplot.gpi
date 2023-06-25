@@ -1,0 +1,14 @@
+set terminal svg background "white"
+set key bottom right
+set output "quadplot.svg"
+set xlabel "x"
+set ylabel "y"
+set tics out
+set xzeroaxis
+set yzeroaxis
+set samples 800
+set key right top
+set title "Quad interp exdata"
+plot [-1:6][-5:18] \
+ "quaddata.data" with lines title "interpolation quad" \
+,"simpledata.data" with points pointtype 4 ps 1 title "datapoints" 

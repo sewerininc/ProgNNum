@@ -1,30 +1,19 @@
-All : Out.txt const_plot.svg rnd_plot.svg Makefile
+All : Out.txt Makefile
 	cat $<
 
-rnd_plot.svg: rndplot.gpi rnddata.data rndterpdata.data
-	gnuplot $<
+DIR = $(HOME)/AU/ProgNNum/matlib/matrix/
+DLLS = $(addprefix -reference:,$(filter %.dll,$^))
+CODE = $(filter %.cs,$^)
 
-rnddata.data: main.exe
-	mono $< rnddata > $@
+Out.txt : main.exe  
+	mono $< > $@
 
-rndterpdata.data: main.exe rnddata.data
-	mono $< rndterpdata > $@
+main.exe : main.cs matrix.dll
+	mcs -target:exe -out:$@ $(DLLS) $(CODE)
 
-const_plot.svg: explot.gpi cdata.data cterpdata.data
-	gnuplot $<
-
-Out.txt: main.exe rnddata.data
-	mono $< test > $@
-
-cdata.data : main.exe
-	mono $< cdata > $@
-
-cterpdata.data : main.exe
-	mono $< cterpdata > $@
-
-main.exe : main.cs 
-	mcs main.cs -target:exe -out:main.exe
+matrix.dll : $(DIR)vector.cs $(DIR)matrix.cs
+	mcs -target:library -out:$@ $^
 
 clean : 
-	rm --force Out.txt main.exe *.data *.svg 
+	rm --force Out.txt main.exe *.dll
 
