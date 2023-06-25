@@ -5,7 +5,7 @@ My last two numbers of the student number are 89 and the project I have is there
 
 Self-Rating: 9 
 
-With this self-rated 9 and the total of 64 homework points I have the score: 7.18
+With this self-rated 9 and the total of 67 homework points I have the score: 7.39
 
 ### Description, Thoughts 
 
