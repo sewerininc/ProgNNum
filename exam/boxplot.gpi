@@ -1,6 +1,5 @@
 set terminal svg background "white"
-set output 'aboxplot.svg'
-
+set output 'boxplot_operations.svg'
 set border 2 front lt black linewidth 1.000 dashtype solid
 set boxwidth 0.5 absolute
 set style fill solid 0.50 border lt -1
@@ -10,21 +9,18 @@ set pointsize 0.5
 set style data boxplot
 set xtics border in scale 0,0 nomirror norotate autojustify
 set xtics norangelimit
-set xtics ("Nuclear" 1.00000, "Coal" 2.00000, "Gas" 3.00000, "Oil" 4.00000, "Hydroelectric" 5.00000, "Renewable" 6.00000)
+set xtics ("n = 151" 1.00000, "n = 201" 2.00000, "n = 251" 3.00000, "n = 301" 4.00000, "n = 351" 5.00000, "n = 401" 6.00000)
 set ytics border in scale 1,0.5 nomirror norotate autojustify
-set title "Distribution of energy usage explicitly ordered by name of energy source\n"
+set title "Check if the amount of O(1) root finding are constant for each n and that it scales with O(n)\n"
 set xrange [ * : * ] noreverse writeback
 set x2range [ * : * ] noreverse writeback
-set ylabel "Billion Tons of Oil Equivalent"
+set ylabel "Operations pr root divided by n [O(1)/n]"
 set yrange [ * : * ] noreverse writeback
 set y2range [ * : * ] noreverse writeback
 set zrange [ * : * ] noreverse writeback
 set cbrange [ * : * ] noreverse writeback
 set rrange [ * : * ] noreverse writeback
 set style boxplot candles range 1.50 nooutliers pt 7 separation 1 labels auto sorted
-
-factors = "Nuclear Coal Gas Oil Hydroelectric Renewable"
 NF = 6
-
-plot for [i=1:NF] 'energy_circles.dat' using (i):(column(i+1)) with boxplot
+plot for [i=1:NF] 'boxdata.data' using (i):(column(i+1)) with boxplot
 

@@ -1,12 +1,18 @@
-All : Out.txt operations_pr_n.svg
+All : Out.txt operations_pr_n.svg boxplot_operations.svg
 	cat $<
 
 DIR = $(HOME)/AU/ProgNNum/matlib/matrix/
 DLLS = $(addprefix -reference:,$(filter %.dll,$^))
 CODE = $(filter %.cs,$^)
 
+boxplot_operations.svg: boxplot.gpi boxdata.data
+	gnuplot $<
+
 operations_pr_n.svg: operations_plot.gpi plotdata.data
 	gnuplot $<
+
+boxdata.data: main.exe
+	mono $< $@ > $@
 
 Out.txt : main.exe  
 	mono $< $@ > $@

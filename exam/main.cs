@@ -65,11 +65,12 @@ public static class main{ // If this takes long time to rung look at the two per
 		WriteLine($"This then proves that the program finds all possible (updated) eigenvalues. \nNext task is to show that the operations scale with O(n²), this will be shown on the plot 'operations_pr_n.svg'.");
 		WriteLine("The sum of all itterations to find all n (update) eigenvalues is divided with n² such the plot should be a straight line if the number of operations scales with n²");
 		WriteLine("The plot is linear when the matrix is reasonably large and therefore I have found the eigenvalues of A using only O(n²) operations\n");
-		WriteLine("To find any n root in a n*n size A matrix it should take just as many operations hereby som matrixes has been randomly picked and plottet in boxplot.svg to check if this is true");
+		WriteLine("To find any n root in a n*n size A matrix it should take just as many operations hereby som matrixes has been randomly picked and plottet in boxplot_operations.svg to check if this is true");
 		
+		WriteLine("They seem produced within the uncertainties on the plot and therefore the scaling for O(n) operations to find each n root seems to be viable.\nNext is the O(1) operations to find each root. It seems like the spread showcased on the boxplot is just as large with higer values of m");
 		}
 		if( arg == "plotdata.data" ){
-		for(int i=5; i<400; i+=5){ // Put this down if to i<100 if performance problems # Second place
+		for(int i=5; i<410; i+=5){ // Put this down if to i<100 if performance problems # Second place
 		
 			double sum_itterations = 0;
 			matrix D_data = functions.get_D(i);
@@ -89,12 +90,48 @@ public static class main{ // If this takes long time to rung look at the two per
 			
 		
 		}
+		if( arg == "boxdata.data" ){
+		int[] ns = {151, 201, 251, 301, 351, 401}; // This takes time, but is needed for analysis 
+		matrix to_print = new matrix(5, 7);
+		for(int i =0; i<5; i++) to_print[i, 0] = i;
+		
+		foreach(int n_value in ns){
+			double[] itterations = new double[n_value];
+			
+			matrix D_data = functions.get_D(n_value);
+			matrix u_data = functions.get_u(n_value);
+			matrix uTu_data = u_data.transpose()*u_data;
+			
+			Func<double, double> sec_data = x => functions.secular_eq(x, D_data, u_data);
+			Func<double, double> diff_sec_data = x => functions.diff_secular_eq(x, D_data, u_data);
+			
+			double guess_data = 0.0;
+			for(int j=0; j<n_value; j++){
+				guess_data = D_data[j,j] + uTu_data[0,0]/2;		
+				itterations[j] = functions.get_itterations(sec_data, diff_sec_data, guess_data, 1e-3, false)/Pow(n_value*1.0, 1);
+			}
+			Array.Sort(itterations);
+			
+			to_print[2, (n_value-100)/50] = itterations[n_value/2];
+			to_print[0, (n_value-100)/50]  = itterations[0];
+			to_print[4, (n_value-100)/50]  = itterations[n_value-1];
+			to_print[1, (n_value-100)/50]  = itterations[n_value/4];
+			to_print[3, (n_value-100)/50]  = itterations[3*n_value/4];
+			
+			//WriteLine($"{n_value/50 - 1} {n_value/50} {median} {min} {max} {bot_med} {top_med}");
+		} 
+		to_print.print();
+		
+		
+		
+		}
 	}
 		
 		
 
 	}
 }
+
 
 
 

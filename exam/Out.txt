@@ -4,47 +4,51 @@ D's diagonalvalues is random between 1 and 5 however the max possible value for 
 D = 
          3          0          0          0          0 
          0        252          0          0          0 
-         0          0        504          0          0 
-         0          0          0        754          0 
+         0          0        502          0          0 
+         0          0          0        751          0 
          0          0          0          0      1e+03 
 u = 
-         4 
+         3 
+         5 
          1 
-         1 
-         4 
-         2 
+         3 
+         3 
 uu^T = 
-        16          4          4         16          8 
-         4          1          1          4          2 
-         4          1          1          4          2 
-        16          4          4         16          8 
-         8          2          2          8          4 
+         9         15          3          9          9 
+        15         25          5         15         15 
+         3          5          1          3          3 
+         9         15          3          9          9 
+         9         15          3          9          9 
 A = D + uu^T = 
-        19          4          4         16          8 
-         4        253          1          4          2 
-         4          1        505          4          2 
-        16          4          4        770          8 
-         8          2          2          8   1.01e+03 
+        12         15          3          9          9 
+        15        277          5         15         15 
+         3          5        503          3          3 
+         9         15          3        760          9 
+         9         15          3          9   1.01e+03 
 u^Tu = 
-        38 
+        53 
 Next equation 23 in the chapter eigenvalues is calculated where the roots m of the equation is the (updated) eigenvalues 
 The roots are found with the Newton-Raphson method and each guess will be d_i + u^Tu/2 
 Since all values in u is above 0 there are 5 possible solutions which will be found with the uncertainty that f(λ) = 0 +- 1e-3
-Found eigenvalue λ = 18.5161374168875 where f(λ) = 0.00098397789627506 at 88 itterations
-Found eigenvalue λ = 253.023913500413 where f(λ) = 0.000630981949567228 at 32 itterations
-Found eigenvalue λ = 504.965345283872 where f(λ) = 0.000585439945662328 at 30 itterations
-Found eigenvalue λ = 770.164497458076 where f(λ) = 0.00096183635049411 at 90 itterations
-Found eigenvalue λ = 1005.36580003068 where f(λ) = 0.000851208771509016 at 58 itterations
+Found eigenvalue λ = 10.9919858150978 where f(λ) = 0.000883184759893433 at 76 itterations
+Found eigenvalue λ = 276.949653475958 where f(λ) = 0.000971029809006483 at 107 itterations
+Found eigenvalue λ = 503.068153432165 where f(λ) = 0.00057163965153284 at 42 itterations
+Found eigenvalue λ = 760.26602984812 where f(λ) = 0.000997564837583349 at 92 itterations
+Found eigenvalue λ = 1011.77429493039 where f(λ) = 0.00091698792489181 at 100 itterations
 Here it can be noticed that some of the eigenvalues are indeed within d_n ≤ λ_n ≤ d_n + u^Tu. To make sure I test it for all eigenvalues and are all eigenvalues indeed in compliance with equation 25 ? True
 The total number of found eigenvalues = 5 (should be equal to n which is 5 for this case)
 Is all n eigenvalues different ? True
 
-Next we will test the implication a bit more with a random generated n:[400;450], n = 436
+Next we will test the implication a bit more with a random generated n:[400;450], n = 443
 Are all eigenvalues indeed in compliance with equation 25 ? True
-The total number of found eigenvalues = 436
+The total number of found eigenvalues = 443
 Is all n eigenvalues different ? True 
 
 This then proves that the program finds all possible (updated) eigenvalues. 
 Next task is to show that the operations scale with O(n²), this will be shown on the plot 'operations_pr_n.svg'.
 The sum of all itterations to find all n (update) eigenvalues is divided with n² such the plot should be a straight line if the number of operations scales with n²
 The plot is linear when the matrix is reasonably large and therefore I have found the eigenvalues of A using only O(n²) operations
+
+To find any n root in a n*n size A matrix it should take just as many operations hereby som matrixes has been randomly picked and plottet in boxplot_operations.svg to check if this is true
+They seem produced within the uncertainties on the plot and therefore the scaling for O(n) operations to find each n root seems to be viable.
+Next is the O(1) operations to find each root. It seems like the spread showcased on the boxplot is just as large with higer values of m
