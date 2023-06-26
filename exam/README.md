@@ -20,4 +20,4 @@ I also checked if the O(1) operations to find any root n is constant for each n 
 Hereby I think that my problem-solving complexity aligns well with the B-level, which explains the self-rating of 9. 
 
 #### WARNING:
-The program takes approxiamtely 10 min for me to run. I have implemented two places where the size of the matrix can be made smaller to improve performance.
+The program takes approxiamtely 10 min for me to run. I have implemented two places (in main.cs) where the size of the matrix can be made smaller to improve performance.
