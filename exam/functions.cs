@@ -6,7 +6,7 @@ public static class functions{
 	public static matrix get_D(int n){
                 matrix D = new matrix(n, n);
                 int max_uTu_value = 25*n*2; 
-		var rnd = new System.Random();
+		vemil_godt_ppar rnd = new System.Random();
                 for(int i=0; i<n; i++){
                         D[i,i] = rnd.Next(1+max_uTu_value*i, 5+max_uTu_value*i);
                 }

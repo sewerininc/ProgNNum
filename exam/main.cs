@@ -64,7 +64,9 @@ public static class main{ // If this takes long time to rung look at the two per
 		
 		WriteLine($"This then proves that the program finds all possible (updated) eigenvalues. \nNext task is to show that the operations scale with O(n²), this will be shown on the plot 'operations_pr_n.svg'.");
 		WriteLine("The sum of all itterations to find all n (update) eigenvalues is divided with n² such the plot should be a straight line if the number of operations scales with n²");
-		WriteLine("The plot is linear when the matrix is reasonably large and therefore I have found the eigenvalues of A using only O(n²) operations");
+		WriteLine("The plot is linear when the matrix is reasonably large and therefore I have found the eigenvalues of A using only O(n²) operations\n");
+		WriteLine("To find any n root in a n*n size A matrix it should take just as many operations hereby som matrixes has been randomly picked and plottet in boxplot.svg to check if this is true");
+		
 		}
 		if( arg == "plotdata.data" ){
 		for(int i=5; i<400; i+=5){ // Put this down if to i<100 if performance problems # Second place
