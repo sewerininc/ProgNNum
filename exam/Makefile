@@ -24,5 +24,5 @@ matrix.dll : $(DIR)vector.cs $(DIR)matrix.cs
 	mcs -target:library -out:$@ $^
 
 clean : 
-	rm --force Out.txt main.exe *.dll
+	rm --force Out.txt main.exe *.dll *.svg
 
