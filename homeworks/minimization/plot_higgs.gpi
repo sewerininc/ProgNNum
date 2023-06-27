@@ -1,0 +1,15 @@
+set terminal svg background "white"
+set key bottom right
+set output "higgs_fit.svg"
+set xlabel "Energy [GeV]"
+set ylabel "Signal σ(Energy)"
+set tics out
+set xzeroaxis
+set yzeroaxis
+set samples 800
+set key right top
+set title "Fit to the higgs mass"
+plot [95:165][-5:10] \
+ "higgs.data" with errorbars title "Ex data" \
+ ,"fitdata.data" with lines title "Fit manually picked A=25, m=125, Gamma=4.2" \
+,"fitsdata.data" with lines title "Fit auto A=-26, m=454, Gamma=397938" 

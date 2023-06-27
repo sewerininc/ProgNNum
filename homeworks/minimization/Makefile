@@ -2,16 +2,23 @@ DLLS = $(addprefix -reference:,$(filter %.dll,$^))
 CODE = $(filter %.cs,$^)
 DIR = $(HOME)/AU/ProgNNum/matlib/matrix/
 
-All : Out.txt #test_error_plot.svg
+All : Out.txt higgs.txt higgs_fit.svg
 	cat $<
+	cat higgs.txt
 
-test_error_plot.svg: n_error_plot.gpi estimated_error.data
+higgs_fit.svg: plot_higgs.gpi fitdata.data fitsdata.data
 	gnuplot $<
 
-Out.txt: main.exe 
+fitdata.data: main.exe 
 	mono $< $@ > $@
 
-estimated_error.data : main.exe
+fitsdata.data: main.exe
+	mono $< $@ > $@
+
+higgs.txt: main.exe
+	mono $< $@ > $@
+
+Out.txt: main.exe 
 	mono $< $@ > $@
 
 QRGS.dll : QRGS.cs matrix.dll
@@ -24,5 +31,5 @@ matrix.dll : $(DIR)vector.cs $(DIR)matrix.cs
 	mcs -target:library -out:$@ $^
 
 clean : 
-	rm --force Out.txt main.exe *.data *.svg 
+	rm --force Out.txt main.exe estimated_error.data *.svg *.dll 
 

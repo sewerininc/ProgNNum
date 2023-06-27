@@ -29,7 +29,8 @@ public static class main{
 			vector fx_new = fv(new_x);
 		
 			if(fx_new.norm() < eps){
-			       	WriteLine($"Solved (eps satisfied) x = [{new_x[0]}, {new_x[1]}] at loop {loop}");
+					if(n == 2) WriteLine($"Solved (eps satisfied) x = [{new_x[0]}, {new_x[1]}] at loop {loop}");
+					if(n == 3) WriteLine($"Solved (eps satisfied) x = [{new_x[0]}, {new_x[1]}, {new_x[2]}] at loop {loop}");
 				return fx_new;
 			}
 
@@ -83,6 +84,49 @@ public static class main{
 	static vector v_rosenbrock(vector x){
 		return new vector(-2*(1-x[0]*x[0])-400*(x[1]-x[0]*x[0])*x[0], 200*(x[1]-x[0]*x[0]));}	
 
+	static vector vector_breit_func(vector x, vector energy, vector signal, vector signal_unc){ /* x must be 3 */
+		vector result = new vector(3);
+		int n = energy.size;
+		for(int i = 0; i<n; i++){
+		double E = energy[i];
+		double s = signal[i];
+		double k = signal_unc[i];
+
+		result[0] += 2*(x[0]/(Pow(E-x[1], 2) + Pow(x[2], 2)/4)-s)/(Pow(k, 2)*(Pow(E-x[1], 2)+Pow(x[2], 2)/4)); /* df/dA */
+		result[1] += 4*x[0]*(E-x[1])*(x[0]/(Pow(E-x[1], 2)+Pow(x[2], 2)/4)-s)/(Pow(k, 2)*Pow(Pow(E-x[1], 2)+Pow(x[2], 2)/4, 2)); 
+		/* df/dm */
+		result[2] += 16*x[0]*x[2]*(4*x[0]-4*s*Pow(x[1]-E, 2)-s*Pow(x[2], 2))/(Pow(k, 2)*Pow(4*Pow(x[1]-E, 2)+Pow(x[2], 2),3)); 
+		/* df/dGamma */
+		}
+		return result;
+	}
+	
+	static matrix matrix_breit_func(vector x, vector energy, vector signal, vector signal_unc){ /* x must be 3 long A = x[0]; */
+		matrix A = new matrix(3, 3);
+		int n = energy.size;
+		for(int i = 0; i<n; i++){
+		double E = energy[i];
+		double s = signal[i];
+		double k = signal_unc[i];
+		
+		A[0, 0] = 2/(Pow(k, 2)*Pow(Pow(E-x[1], 2) + Pow(x[2], 2)/4, 2));
+		A[0, 1] = 64*(x[1] - E)*(s*(4*Pow(x[1]-E, 2) + Pow(x[2], 2)) - 8*x[0])/(Pow(k, 2)*Pow(4*Pow(x[1]-E, 2)+ Pow(x[2], 2), 3));
+		A[0, 2] = 16*x[2]*(s*(4*Pow(x[1]-E, 2) + Pow(x[2], 2))-8*x[0])/(Pow(k, 2)*Pow(4*Pow(x[1]-E, 2)+ Pow(x[2], 2), 3));
+		A[1, 1] = 64*x[0]*(80*x[0]*Pow(x[1]-E, 2)-48*Pow(x[1]-E, 4)+Pow(x[2],4))/(Pow(k,2)*Pow(4*Pow(x[1]-E, 2)+Pow(x[2], 2),4));
+		A[1, 2] = 256*x[0]*x[2]*(x[1]-E)*(6*x[0]-4*s*Pow(x[1]-E, 2)-s*Pow(x[2], 2))/(Pow(k, 2)*Pow(4*Pow(x[1]-E, 2)+Pow(x[2], 2),4));
+		A[2, 2] = 16*x[0]*(4*x[0]*(5*Pow(x[2], 2)-4*Pow(x[1]-E, 2))+s*(16*Pow(x[1]-E, 4)-8*Pow(x[2], 2)*Pow(x[1]-E, 2)-3*Pow(x[1]-E, 4)))/(Pow(k, 2)*Pow(4*Pow(x[1]-E, 2)+Pow(x[2], 2),4));
+		}
+		A[1, 0] = A[0, 1];
+		A[2, 0] = A[0, 2];
+		A[2, 1] = A[1, 2];
+		return A;
+	}
+	
+	static double breit_wigner(double E, double A, double m, double G){
+		return A/(Pow(E-m,2)+Pow(G,2)/4);
+	}
+	
+
 	public static void Main(string[] args){
 
 	foreach(var arg in args){
@@ -100,6 +144,54 @@ public static class main{
 			vector result_him = qnewton(himmelblau, v_himmelblau, guesst, 1e-8);
 			result_him.print("Rosenbrock last value for fx = ");
 		}
+		if(arg == "higgs.txt")
+		{	
+			var higgs_data = File.ReadAllText("higgs.data").Split("\n");
+			int n = higgs_data.Length-1;
+			
+			vector energy = new vector(n);
+			vector signal = new vector(n);
+			vector signal_unc = new vector(n);
+			var options = StringSplitOptions.RemoveEmptyEntries;
+			var separators = new char[] {' '};
+			
+			for(int i =0; i<n; i++){
+				var xys = higgs_data[i].Split(separators, options);
+				
+		       	energy[i] = Double.Parse(xys[0]);
+				signal[i] = Double.Parse(xys[1]);
+				signal_unc[i] = Double.Parse(xys[2]);
+			}
+			
+			Func<vector, vector> v_breit = x => vector_breit_func(x, energy, signal, signal_unc);
+			Func<vector, matrix> diff_breit = x => matrix_breit_func(x, energy, signal, signal_unc);
+			
+			vector higgs_guess = new vector(-3, 3, 3);
+			WriteLine($"Solving Breit-Wigner function, guess x = [{higgs_guess[0]}, {higgs_guess[1]}, {higgs_guess[2]}]");
+			vector result_breit = qnewton(diff_breit, v_breit, higgs_guess, 1e-8);
+			result_breit.print("Breit-Wigner last value for fx = ");
+			WriteLine("The fit is not good? I do not know where it went wrong, but I am plotting with the fitted values and some handpicked");
+
+		}
+		if(arg == "fitsdata.data"){
+		vector fit_res = new vector(-25.8815024514201, 454.18953098711, 397938.050638432);
+		
+		
+		for(double i=99.0; i<161.0; i+=1.0/20.0){
+			WriteLine($"{i} {breit_wigner(i, fit_res[0], fit_res[1], fit_res[2])}");
+		}
+		
+		}
+		if(arg == "fitdata.data"){
+		vector fit_res = new vector(25, 125, 4.2);
+		
+		
+		for(double i=99.0; i<161.0; i+=1.0/20.0){
+			WriteLine($"{i} {breit_wigner(i, fit_res[0], fit_res[1], fit_res[2])}");
+		}
+		
+		}
+
 	}
 	
 }

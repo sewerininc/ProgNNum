@@ -1,0 +1,4 @@
+Solving Breit-Wigner function, guess x = [-3, 3, 3]
+Solved (eps satisfied) x = [-25.8815024514201, 454.18953098711, 397938.050638432] at loop 2
+Breit-Wigner last value for fx =  -8.67e-11  -3.97e-17   1.13e-14 
+The fit is not good? I do not know where it went wrong, but I am plotting with the fitted values and some handpicked
