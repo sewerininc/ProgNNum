@@ -5,7 +5,7 @@ My last two numbers of the student number are 89 and the project I have is there
 
 Self-Rating: 9 
 
-With this self-rated 9 and the total of 67 homework points I have the score: 7.39
+With this self-rated 9 and the total of 70 homework points I have the score of 7.6
 
 ### Description, Thoughts 
 
@@ -15,9 +15,9 @@ The next task is to calculate the equation 23 and find all n roots of the equati
 
 In my Out.txt I first test that I can find eigenvalues for a simple 5x5 D matrix with a 5 long u column-vector with extensive testing. Next, I do it for a random-sized D matrix (n can be anything from 400 to 450) and check if the same testing still applies. It did and then I made the plot on operations_pr_n.svg. The y-axis is summed operations divided by n^2, the x-axis is n and since this is a flat equation then I am finding the (updated) eigenvalues of A only using O(n^2) operations.
 
-I also checked if the O(1) operations to find any root n is constant for each n and that is scales with O(n). The results are shown in the boxplot_operations.svg and discussed in the end of the Out.txt
+I also checked if the O(1) operations to find any root n is constant for each n and that it scales with O(n). The results are shown in the boxplot_operations.svg and discussed at the end of the Out.txt
 
 Hereby I think that my problem-solving complexity aligns well with the B-level, which explains the self-rating of 9. 
 
 #### WARNING:
-The program takes approxiamtely 10 min for me to run. I have implemented two places (in main.cs) where the size of the matrix can be made smaller to improve performance.
+The program takes approximately 10 min for me to run. I have implemented two places (in main.cs) where the size of the matrix can be made smaller to improve performance.
